@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS company_database;
+USE company_database;
+
+DROP TABLE employee;
+
+SHOW tables FROM company_database;
+
+SELECT * FROM employee;
