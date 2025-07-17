@@ -47,23 +47,23 @@ CREATE TABLE IF NOT EXISTS branch_supplier (
 -- ALTER TABLE works_with ADD CONSTRAINT works_with_client_id  FOREIGN KEY (client_id) REFERENCES client(client_id);
 -- ALTER TABLE branch_supplier ADD CONSTRAINT branch_supplier_id  FOREIGN KEY (branch_id) REFERENCES branch(branch_id);
 -- ALTER TABLE branch ADD CONSTRAINT branch_mgr_id  FOREIGN KEY (mgr_id) REFERENCES employee(emp_id);
-CALL AddForeignKeyIfNotExists('employee', 'branch_id', 'branch(branch_id)', 'employee_branch_id');
-CALL AddForeignKeyIfNotExists('employee', 'super_id', 'employee(emp_id)', 'employee_super_id');
-CALL AddForeignKeyIfNotExists('client', 'client_branch_id', 'branch(branch_id)', 'client_branch_id');
-CALL AddForeignKeyIfNotExists('works_with', 'emp_id', 'employee(emp_id)', 'works_with_emp_id');
-CALL AddForeignKeyIfNotExists('works_with', 'client_id', 'client(client_id)', 'works_with_client_id');
-CALL AddForeignKeyIfNotExists('branch_supplier', 'branch_id', 'branch(branch_id)', 'branch_supplier_id');
-CALL AddForeignKeyIfNotExists('branch', 'mgr_id', 'employee(emp_id)', 'branch_mgr_id');
+CALL AddForeignKeyIfNotExists('employee_branch_id', 'employee', 'branch_id', 'branch(branch_id)');
+CALL AddForeignKeyIfNotExists('employee_super_id', 'employee', 'super_id', 'employee(emp_id)');
+CALL AddForeignKeyIfNotExists('client_branch_id', 'client', 'client_branch_id', 'branch(branch_id)');
+CALL AddForeignKeyIfNotExists('works_with_emp_id', 'works_with', 'emp_id', 'employee(emp_id)');
+CALL AddForeignKeyIfNotExists('works_with_client_id', 'works_with', 'client_id', 'client(client_id)');
+CALL AddForeignKeyIfNotExists('branch_supplier_id', 'branch_supplier', 'branch_id', 'branch(branch_id)');
+CALL AddForeignKeyIfNotExists('branch_mgr_id', 'branch', 'mgr_id', 'employee(emp_id)');
 
 -- DESCRIBE branch;
 -- SHOW CREATE TABLE branch;
 -- DESCRIBE branch_supplier;
 -- SHOW CREATE TABLE branch_supplier;
 -- DESCRIBE client;
-SHOW CREATE TABLE client;
+-- SHOW CREATE TABLE client;
 -- DESCRIBE employee;
-SHOW CREATE TABLE employee;
+-- SHOW CREATE TABLE employee;
 -- DESCRIBE works_with;
-SHOW CREATE TABLE works_with;
+-- SHOW CREATE TABLE works_with;
 
 SHOW tables FROM company_database;
