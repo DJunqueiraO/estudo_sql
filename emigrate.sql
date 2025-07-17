@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS girafales;
+USE girafales;
+DROP TABLE IF EXISTS student;
