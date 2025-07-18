@@ -16,7 +16,7 @@ BEGIN
   -- Pega o nome do banco atual
   SELECT DATABASE() INTO db_name;
  
-  -- Verifica se a constraint já existe
+  -- Verifica se a constraint jÃ¡ existe
   SELECT COUNT(*)
   INTO constraint_exists
   FROM information_schema.TABLE_CONSTRAINTS
@@ -24,7 +24,7 @@ BEGIN
     AND TABLE_NAME = in_table_name
     AND CONSTRAINT_SCHEMA = db_name;
  
-  -- Se não existe, cria a constraint dinamicamente
+  -- Se nÃ£o existe, cria a constraint dinamicamente
   IF constraint_exists = 0 THEN
     SET @sql = CONCAT(
       'ALTER TABLE ', in_table_name,
