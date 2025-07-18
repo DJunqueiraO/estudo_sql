@@ -3,8 +3,8 @@ USE company_database;
 
 CREATE TABLE IF NOT EXISTS employee (
 	emp_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	first_name VARCHAR(20) NOT NULL,
-	last_name VARCHAR(20) NOT NULL,
+	first_name VARCHAR(40) NOT NULL,
+	last_name VARCHAR(40) NOT NULL,
 	birth_date DATE NOT NULL,
 	sex ENUM('M', 'F') NOT NULL,
 	salary DECIMAL(10, 2) NOT NULL,
@@ -47,13 +47,13 @@ CREATE TABLE IF NOT EXISTS branch_supplier (
 -- ALTER TABLE works_with ADD CONSTRAINT works_with_client_id  FOREIGN KEY (client_id) REFERENCES client(client_id);
 -- ALTER TABLE branch_supplier ADD CONSTRAINT branch_supplier_id  FOREIGN KEY (branch_id) REFERENCES branch(branch_id);
 -- ALTER TABLE branch ADD CONSTRAINT branch_mgr_id  FOREIGN KEY (mgr_id) REFERENCES employee(emp_id);
-CALL AddForeignKeyIfNotExists('employee_branch_id', 'employee', 'branch_id', 'branch(branch_id)');
-CALL AddForeignKeyIfNotExists('employee_super_id', 'employee', 'super_id', 'employee(emp_id)');
-CALL AddForeignKeyIfNotExists('client_branch_id', 'client', 'client_branch_id', 'branch(branch_id)');
-CALL AddForeignKeyIfNotExists('works_with_emp_id', 'works_with', 'emp_id', 'employee(emp_id)');
-CALL AddForeignKeyIfNotExists('works_with_client_id', 'works_with', 'client_id', 'client(client_id)');
-CALL AddForeignKeyIfNotExists('branch_supplier_id', 'branch_supplier', 'branch_id', 'branch(branch_id)');
-CALL AddForeignKeyIfNotExists('branch_mgr_id', 'branch', 'mgr_id', 'employee(emp_id)');
+-- CALL AddForeignKeyIfNotExists('employee_branch_id', 'employee', 'branch_id', 'branch(branch_id)');
+-- CALL AddForeignKeyIfNotExists('employee_super_id', 'employee', 'super_id', 'employee(emp_id)');
+-- CALL AddForeignKeyIfNotExists('client_branch_id', 'client', 'client_branch_id', 'branch(branch_id)');
+-- CALL AddForeignKeyIfNotExists('works_with_emp_id', 'works_with', 'emp_id', 'employee(emp_id)');
+-- CALL AddForeignKeyIfNotExists('works_with_client_id', 'works_with', 'client_id', 'client(client_id)');
+-- CALL AddForeignKeyIfNotExists('branch_supplier_id', 'branch_supplier', 'branch_id', 'branch(branch_id)');
+-- CALL AddForeignKeyIfNotExists('branch_mgr_id', 'branch', 'mgr_id', 'employee(emp_id)');
 
 -- DESCRIBE branch;
 -- SHOW CREATE TABLE branch;
