@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS company_database;
+USE company_database;
+
+CREATE TABLE IF NOT EXISTS employee (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  birthday DATE NOT NULL,
+  sex ENUM('M', 'F') NOT NULL,
+  salary DECIMAL(10, 2) NOT NULL,
+  PRIMARY KEY (id)
+)
+
+CREATE TABLE IF NOT EXISTS client (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,    
+)
+
+CREATE TABLE IF NOT EXISTS branch (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  employee_id INT NOT NULL,
+  CONSTRAINT fk_branch_employee FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE SET NULL,
+  PRIMARY KEY (id)
+)
